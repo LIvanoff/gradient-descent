@@ -13,8 +13,8 @@ def visualizator(coord):
         x_grad = np.append(x_grad, coord[i][0])
         y_grad = np.append(y_grad, coord[i][1])
 
-    negative_bound = -10
-    positive_bound = 10
+    negative_bound = -20
+    positive_bound = 0
     x = np.outer(np.linspace(negative_bound, positive_bound, 100), np.ones(100))
     y = x.copy().T
 
@@ -28,15 +28,15 @@ def visualizator(coord):
     axes[1].contourf(x, y, z(x, y), alpha=.8)
     axes[1].set_title('contourf')
 
-    for i in range(0, len(coord)):
-        axes[0].annotate('', xy=coord[i], xytext=coord[i],
-                     arrowprops={'arrowstyle': '->', 'color': 'r', 'lw': 1},
-                     va='center', ha='center')
-        print('i = '+str(i)+' coord = ('+str(coord[i])+')')
-    axes[0].plot(x_grad, y_grad, c="red", alpha=0.8)
-    axes[1].plot(x_grad, y_grad, c="red", alpha=0.8)
+    # for i in range(len(coord)-1):
+    #     axes[0].annotate('', xy=coord[i], xytext=coord[i],
+    #                  arrowprops={'arrowstyle': '->', 'color': 'r', 'lw': 1},
+    #                  va='center', ha='center')
+    #     print('i = '+str(i)+' coord = ('+str(coord[i])+')')
+    axes[0].plot(x_grad, y_grad, 'v-r', alpha=0.7, lw=3, mec='r', mew=1, ms=6)
+    axes[1].plot(x_grad, y_grad, 'v-r', alpha=0.7, lw=3, mec='r', mew=1, ms=6)
 
     fig.set_figwidth(14)
     fig.set_figheight(7)
-
+    plt.grid()
     plt.show()
