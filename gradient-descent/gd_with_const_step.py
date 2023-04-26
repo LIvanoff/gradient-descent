@@ -1,17 +1,15 @@
 from function import func
-import autograd as ad
 import autograd.variable as av
 import numpy as np
 from visualization.visualizator import visualize
 
 
-class GD(object):
+class GDwCS(object):
     param_buff = np.ndarray
 
     def __init__(self, parameters: np.ndarray, lr: float, epochs: int):
         self.value = None
         self.parameters = parameters
-        self.param_buff = parameters
         self.lr = lr
         self.epochs = epochs
         self.param_history = []
@@ -42,6 +40,6 @@ class GD(object):
 
 
 parameters = np.array([-15., -15.])
-gd = GD(parameters=parameters, lr=0.2, epochs=8)
+gd = GDwCS(parameters=parameters, lr=0.2, epochs=8)
 gd.optimize()
 visualize(gd.param_history)
