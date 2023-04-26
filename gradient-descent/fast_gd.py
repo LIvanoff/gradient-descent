@@ -32,8 +32,8 @@ class FGD(object):
             self.step()
 
 
-parameters = np.array([-15., -15.])
-gd = FGD(parameters=parameters, epochs=1)
+parameters = np.array([-17.7, -12.])
+gd = FGD(parameters=parameters, epochs=3)
 gd.optimize()
 print(gd.param_history)
 visualize(gd.param_history)

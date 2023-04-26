@@ -39,7 +39,7 @@ class GDwCS(object):
             self.step()
 
 
-parameters = np.array([-15., -15.])
-gd = GDwCS(parameters=parameters, lr=0.2, epochs=8)
+parameters = np.array([-17.7, -12.])
+gd = GDwCS(parameters=parameters, lr=0.5, epochs=3)
 gd.optimize()
 visualize(gd.param_history)
