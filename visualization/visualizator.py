@@ -6,7 +6,7 @@ def z(x, y):
     return x ** 2 - x * y + y ** 2 + 2 * x + 3 * y  # x ** 2 + 2 * y ** 2 + math.e ** (x + y)
 
 
-def visualizator(coord):
+def visualize(coord):
     x_grad = np.array([])
     y_grad = np.array([])
     for i in range(0, len(coord)):

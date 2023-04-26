@@ -17,8 +17,8 @@ class GDwCS(object):
     def step(self):
         changed = True
         while changed:
-            gradient = self.value.compute_gradients()
-            self.param_buff = self.parameters - np.dot(gradient[0], self.lr)
+            gradients = self.value.compute_gradients()[0]
+            self.param_buff = self.parameters - np.dot(gradients, self.lr)
 
             if func(self.parameters[0], self.parameters[1]) <= func(self.param_buff[0], self.param_buff[1]):
                 self.lr /= 2
